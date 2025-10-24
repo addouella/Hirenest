@@ -1,10 +1,11 @@
 @extends('layouts.default')
 
-@section('Sign up')
-<h1 class= text-center>Create an account</h1>
-@endsection
 
 @section('maincontent')
+<div class='text-black font-bold text-center'>
+    <h1>Create an account</h1>
+</div>
+
 @if ($errors->any())
     <div>
         <ul>
@@ -15,12 +16,18 @@
     </div>
 @endif 
 
-<form method= "post" action="{{route('signup')}}" class="space-y-3">
+<div class='flex justify-center bg-gray-100'>
+    <form method= "post" action="{{route('signup')}}" class="space-y-3">
     @csrf
 
     <div>
-        <label>Name:</label>
-        <input type='text' name='name' class='border p-2 w-full' required>
+        <label class='text-black'>First Name:</label>
+        <input type='text' name='fname' class='border p-2 w-full' required>
+    </div>
+
+    <div>
+        <label>Last Name:</label>
+        <input type='text' name='lname' class='border p-2 w-full' required>
     </div>
 
     <div>
@@ -48,4 +55,19 @@
 
     <button type='submit' class='bg-green-400 text-black px-4 py-2 rounded'>Sign Up</button>
 </form>
+</div>
+
+@if (session('success'))
+    <div id='success-popup' class='fixed item-center justify-center bg-green-400 bg-opacity-40'>
+        <div class='p-5 rounded-lg shadow-lg text-center'>
+            <h2 class='text-black font-semibold text-lg'>{{session('success')}}</h2>
+            <p class='text-gray-600'>Youll be redirected shortly </p>
+        </div>
+    </div>    
+<script>
+    setTimeout(() => {
+        
+    }, 3000);
+</script>
+@endif
 @endsection

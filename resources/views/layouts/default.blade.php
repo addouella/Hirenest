@@ -9,8 +9,8 @@
     @vite('resources/js/app.js')
 </head>
 <body>
-    <header>
-        @yield('Sign up')
+    <header class='bg-blue-500 text-black p-3 text-left font-bold '>
+        Hirenest
     </header>
 
     <main>
