@@ -38,6 +38,7 @@ class AuthController extends Controller
                 ],
             
         );
+        // dd($request->role);
 
         // Create new user
         $user = User::create([
@@ -59,6 +60,25 @@ class AuthController extends Controller
         // @endif    
         return redirect('/')->with('success', 'Account created successfully');
     
+    }
+    public function login(Request $request){
+        //validate input data
+        $request ->validate([
+            'email' => 'required|email|exists:users,email',
+            'password' => 'required|string',
+                
+        ]);
+
+        //extract credentials
+        $credentials = $request->only('email', 'password');
+
+        //check if credentials exist
+        if (Auth::attempt($credentials, $request->filled('remember'))){
+            return redirect('/') -> with('success', 'Login successful!');
+        }
+
+        // if login fails
+        return back()->withErrors(['email'=>'invalid credentials']);
     }
 }
 

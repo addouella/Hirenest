@@ -8,18 +8,21 @@
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
 </head>
-<body>
-    <header class='bg-blue-500 text-black p-3 text-left font-bold '>
-        Hirenest
-    </header>
+<body class='min-h-screen bg-center' >
+    {{-- <header class='bg-blue-500 text-black p-3 text-left font-bold '>
+        @yield('logo')
+    </header> --}}
+    {{-- <div>
+        @yield('topic')
+    </div> --}}
 
     <main>
         @yield('maincontent')
     </main>
 
-    <footer>
+    {{-- <footer>
         @yield('footer')
-    </footer>
+    </footer> --}}
     
 </body>
 </html>

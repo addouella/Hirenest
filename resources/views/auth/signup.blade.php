@@ -1,5 +1,8 @@
 @extends('layouts.default')
 
+@section('topic')
+<h1 class ='flex justify-center text-center text-blue-400'>Sign up</h1>
+@endsection
 
 @section('maincontent')
 <div class='text-black font-bold text-center'>
@@ -14,8 +17,12 @@
             @endforeach
         </ul>
     </div>
+    
 @endif 
 
+{{-- <div class="absolute top-0 bottom-0 right-0 left-0">
+            <img src="{{ asset('images/HomeOffice.jpg')}}" alt="" class="w-full blur-xs">
+ </div> --}}
 <div class='flex justify-center bg-gray-100'>
     <form method= "post" action="{{route('signup')}}" class="space-y-3">
     @csrf
@@ -55,6 +62,7 @@
 
     <button type='submit' class='bg-green-400 text-black px-4 py-2 rounded'>Sign Up</button>
 </form>
+</div>
 </div>
 
 @if (session('success'))
