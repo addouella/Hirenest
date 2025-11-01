@@ -51,6 +51,9 @@ class AuthController extends Controller
 
         // Auto-login user after registration
         Auth::login($user);
+        Auth::user()->fname;
+        Auth::user()->role;
+
 // 
         // Redirect to homepage
         // @if (session('success'))
@@ -58,7 +61,7 @@ class AuthController extends Controller
                 // alert('{{session('success')}}');
             // </script>
         // @endif    
-        return redirect('/')->with('success', 'Account created successfully');
+        return redirect('/dashboard')->with('success', 'Account created successfully');
     
     }
     public function login(Request $request){
@@ -74,7 +77,7 @@ class AuthController extends Controller
 
         //check if credentials exist
         if (Auth::attempt($credentials, $request->filled('remember'))){
-            return redirect('/') -> with('success', 'Login successful!');
+            return redirect('/dashboard') -> with('success', 'Login successful!');
         }
 
         // if login fails

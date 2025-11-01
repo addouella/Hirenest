@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     return view('auth.Home');
@@ -17,6 +18,16 @@ Route::get('/', function () {
 Route::view('/signup', 'auth.signup');
 Route::view('/login', 'auth.login');
 Route::view('/home', 'auth.Home');
+Route::get('/dashboard', function() {
+   if(Auth::user()->role =='job_seeker')  {
+    return view('jobSeekers.dashboard');
+   } elseif (Auth::user()->role =='employer') {
+    return view('employers.dashboard');
+   } else{
+    abort(403, 'unauthorised access' );
+   }
+ })->middleware('auth');
+
 
 // Route::post('/signup', [AuthController::class, 'signup']);
 // Route::post('/login', [AuthController::class, 'login']);

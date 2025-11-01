@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html>  
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,7 +8,7 @@
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
 </head>
-<body class='min-h-screen bg-center' >
+<body >
     {{-- <header class='bg-blue-500 text-black p-3 text-left font-bold '>
         @yield('logo')
     </header> --}}
