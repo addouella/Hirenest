@@ -10,9 +10,9 @@
     <div class="absolute left-0 right-0">
 
         <div class="  flex-col justify min-h-screen px-75 py-5  m-5  ">
-            <div>
+            {{-- <div>
                 <h1 class="font-semibold text-3xl p-10">Welcome back, {{Auth::user()->fname}}!</h1>
-            </div>
+            </div> --}}
             <div>
                 <h1 class =' text-center text-black font-semibold'>Log in</h1>
 
@@ -27,7 +27,7 @@
                 </div>
                 
             @endif 
-            <div class=' bg-transparent border-2 p-10 border-cyan-50-= '>
+            <div class=' bg-transparent border-2 p-10 border-cyan-50 '>
                 <form method='post' action= '{{route('login')}}' class='space-y-3'>
                     @csrf
                     <div>
