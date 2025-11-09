@@ -12,37 +12,37 @@
             </div>
  
             <div class="absolute left-0 right-0">        
-                    <div class="bg-white flex justify-between" >
-                        <div class="text-blue-600 p-2">
+                    <div class="bg-[#ac9c7f] flex justify-between items-center py-1 px-4" >
+                        <div class="text-[#091766] font-serif p-2 font-semibold ">
                             Hirenest
                         </div>
-                        <div class="flex justify-between space-x-4 p-2">
-                             <a class="active font-bold underline" href="/home">Home</a>
-                             <a href="#news" class="active font-bold">News</a>
-                             <a href="#contact" class="active font-bold">Contact</a>
-                             <a href="#about">About</a>
+                        <div class="flex justify-between space-x-4 p-2 text-[#111943]">
+                             <a class="active font-semibold underline" href="/home">Home</a>
+                             <a href="#news" class="active font-semibold">News</a>
+                             <a href="#contact" class="active font-semibold">Contact</a>
+                             <a href="#about" class="active font-semibold">About</a>
                         </div>
-                        <div class="p-2 ">
+                        <div class="text-[#140640] ">
                             {{-- <button class="bg-green-400">Sign Up</button> --}}
-                            <a class="active bg-green-400 rounded p-1" href="/signup">Sign Up</a>
-                            <a class="active bg-blue-400 rounded p-1 " href="/login">Log In</a>
+                            <a class="active bg-[#d2cc87] rounded px-2 py-1 text-sm " href="/signup">Sign Up</a>
+                            <a class="active bg-[#948c38] rounded px-2 py-1 text-sm  " href="/login">Log In</a>
                         </div>
                     </div>
                               
-                <section class="text-center py-16 bg-transparent text-white">
+                <section class="text-center py-16 bg-transparent text-[#dde0f0]">
                     <h1 class="text-4xl font-bold mb-4">Find Your Dream Job or Hire the Best Talent</h1>
                     <p class="text-lg mb-6">Connecting job seekers and employers on one smart platform.</p>
                     <div class="flex justify-center gap-4">
-                        <a href="/signup" class="bg-white text-blue-600 px-6 py-2 rounded font-semibold">Get Started</a>
-                        <a href="/jobs" class="border border-white px-6 py-2 rounded font-semibold">Browse Jobs</a>
+                        <a href="/signup" class="bg-[#bfc4e0] text-[#091766] px-6 py-2 rounded font-semibold">Get Started</a>
+                        <a href="/jobs" class="border border-[#9396a5] px-6 py-2 rounded font-semibold ">Browse Jobs</a>
                     </div>
                 </section>
 
-                <section id="contact" class="text-white ">
+                {{-- <section id="contact" class="text-white ">
                         <h1>Contact Information</h1>
                         <p>Email: addoemmanuella439@gmail.com</p>
                         <p>Tel: 0552843439/0595696943</p>
-                </section>
+                </section> --}}
             </div>
             
             

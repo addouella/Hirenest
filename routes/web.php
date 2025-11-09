@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -36,3 +37,6 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('/signup', 'submit')->name('signup');
     Route::post('/login', 'login') ->name('login');
 });
+
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')
+-> middleware('auth');
