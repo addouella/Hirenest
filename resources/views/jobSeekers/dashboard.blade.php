@@ -10,13 +10,17 @@
             <a href="/profile" class="block p-2 hover:bg-gray-700 rounded-xl">Profiles</a>
             <a href="/message" class="block p-2 hover:bg-gray-700 rounded-xl">Messages</a>
             <a href="/settings" class="block p-2 hover:bg-gray-700 rounded-xl">Settings</a>
-            <a href="/logout" class="block p-2 text-red-500 hover:bg-gray-700 rounded-4xl">Log Out</a>      
+            {{-- <a href="/logout" class="block p-2 text-red-500 hover:bg-gray-700 rounded-4xl">Log Out</a>  --}}
+            <form method="POST" action="{{ route('logout') }}">
+            @csrf
+            <button type="submit" class="text-red-500 hover:underline p-2 rounded-xl">Logout</button>
+            </form>     
         </div>
 @endsection
 
 {{-- @section('title', 'Job Seeker dashboard') @endsection --}}
 @section('content')
-<h1 class="text-3xl font-semibold py-3 px-3 text-[#100c24]">
+<h1 class="text-3xl font-semibold py-3 px-3 text-[#cbc8d7]">
     Welcome, {{Auth::user()->fname}}
 </h1>
 <p class="py-1 px-3 text-[#151336] font-medium">Let's find the perfect job for you!</p>
@@ -24,7 +28,7 @@
 {{-- The quick stat --}}
 <div class="grid grid-cols-3 gap-4 mb-8 py-5 px-3">
     <div class="bg-[#1c0d51] text-[#9190b3] p-4 rounded-xl shadow text-center">
-        <h3 class="text-lg font-semibold">Application</h3>
+        <h3 class="text-lg font-semibold">Applications</h3>
         <p class="text-2xl font-bold text-[#665e80]">{{$applicationsCount}}</p>
     </div>
     <div class="bg-[#09341e] text-[#95aca5] p-4 rounded-xl shadow text-center">

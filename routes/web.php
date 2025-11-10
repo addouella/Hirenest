@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use Illuminate\Auth\Events\Logout;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -36,7 +37,10 @@ Route::get('/dashboard', function() {
 Route::controller(AuthController::class)->group(function () {
     Route::post('/signup', 'submit')->name('signup');
     Route::post('/login', 'login') ->name('login');
+    
 });
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')
 -> middleware('auth');
+
+Route::post('/logout', [AuthController::class, 'logout']) -> name('logout');

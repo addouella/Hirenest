@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('interviews', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('employer_id');
             $table->unsignedBigInteger('job_id');
             $table->date('interview_date');
             $table->string('status')->default('upcoming');
