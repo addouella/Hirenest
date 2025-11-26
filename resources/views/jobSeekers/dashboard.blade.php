@@ -1,12 +1,12 @@
 @extends('layouts.dashboard')
 
-<div class="flex">
+{{-- <div class="flex"> --}}
 @section('sidebar')
-<div id="sidebar" class="  z-10 text-[#130839] backdrop-blur-lg bg-white/10 border border-white/20 rounded-b-xs shadow-2xl w-32">
+<div id="sidebar" class="  z-10 text-[#130839] static backdrop-blur-lg bg-white/10 border border-white/20 rounded-b-xs shadow-2xl w-40">
        {{-- space-y-3 fixed inset-y-0 left-0 transform transition-transform duration-300 ease-in-out "> --}}
             <h2 class="p-2 font-semibold bg-[#ac9c7f] w-full">Job Seeker</h2>
             <a href="/dashboard" class="block p-2  hover:bg-gray-700 rounded-xl">Dashboard</a>
-            <a href="/jobs" class="block p-2 hover:bg-gray-700 rounded-xl">Jobs</a>
+            <a href="{{route('dashboard')}}#joblistings" class="block p-2 hover:bg-gray-700 rounded-xl">Jobs</a>
             <a href="/profile" class="block p-2 hover:bg-gray-700 rounded-xl">Profiles</a>
             <a href="/message" class="block p-2 hover:bg-gray-700 rounded-xl">Messages</a>
             <a href="/settings" class="block p-2 hover:bg-gray-700 rounded-xl">Settings</a>
@@ -20,9 +20,7 @@
 
 {{-- @section('title', 'Job Seeker dashboard') @endsection --}}
 @section('content')
-<h1 class="text-3xl font-semibold py-3 px-3 text-[#cbc8d7]">
-    Welcome, {{Auth::user()->fname}}
-</h1>
+<div class="flex flex-col w-full px-3">
 <p class="py-1 px-3 text-[#151336] font-medium">Let's find the perfect job for you!</p>
 
 {{-- The quick stat --}}
@@ -43,20 +41,42 @@
 </div>
 
 {{-- Job listings --}}
-<div class="mt-8">
-    <h2 class="text-xl font-bold mb-4 px-2">Latest Job Listings</h2>
-    <div class="space-y-4">
-        @foreach($jobPosts as $jobPost)
+
+    <section id="joblistings">
+        <div class="mt-8">
+            @if (request()->routeIs('jobs.all'))
+                <h1 class="text-center font-semibold">All Job Listings</h1>
+                @php $jobPosts = $allJobs; @endphp
+            @else
+                <h1 class="text-center font-semibold">Recent Job Listings</h1>
+                @php $jobPosts = $recentJobs; @endphp
+            @endif
+            {{-- <h2 class="text-xl font-bold mb-4 px-2">Latest Job Listings</h2> --}}
+
+            @if($jobPosts -> isEmpty())
+                <p class="">No jobs available at the moment</p>
+            @else
+            <div class="space-y-4">
+           @foreach($jobPosts as $job) 
             <div class="p-4 border rounded-lg shadow-sm bg-white/10 backdrop-blur-md hover:bg-white/20 hover:shadow-lg hover:-translate-y-1 
                         transition-all duration-300 ease-in-out cursor-pointer">
-                <h3 class="text-lg font-semibold">{{ $jobPost->title }}</h3>
-                <p>{{ $jobPost->location }}</p>
-                <p class="text-sm text-gray-400">{{ Str::limit($jobPost->description, 100) }}</p>
-                <p class="text-sm font-bold mt-2">₵{{ $jobPost->salary }}</p>
+                <h3 class="text-lg font-semibold">Job Title: {{ $job->title }}</h3>
+                <p>Location: {{ $job->location }}</p>
+                <p class="text-sm text-[#250d27d2]">Job Description: {{ Str::limit($job->description, 100) }}</p>
+                <p class="text-sm font-bold mt-2">Salary: {{ $job->salary }}</p>
+                {{-- <form action="{{route('jobs.apply', $job->id)}}" class="" method="POST">
+                    @csrf
+                    {{-- <textarea name="message" placeholder="Add message (optional)"></textarea> --}}
+                    <a href="{{route('jobs.apply.form', $job->id)}}" class="hover:underline" type="submit">Apply Now</a> 
+                {{-- </form> --}}
             </div>
-        @endforeach
-    </div>
-</div>
+            @endforeach
+            </div>
+            @endif
+        </div>
 
+    
+</section>
+</div>
 @endsection
-</div>    
+{{-- </div>     --}}

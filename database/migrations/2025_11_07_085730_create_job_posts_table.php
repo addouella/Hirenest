@@ -13,12 +13,14 @@ return new class extends Migration
     {
         Schema::create('job_posts', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('employer_id'); // linked to user
+            // $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('employer_id')->constrained('users')->onDelete('cascade'); // linked to user
             $table->string('title');
             $table->text('description');
             $table->string('location');
             $table->decimal('salary', 10, 2)->nullable();
             $table->timestamps();
+
         });
     }
 

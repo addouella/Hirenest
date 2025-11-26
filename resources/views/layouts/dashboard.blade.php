@@ -7,6 +7,11 @@
     <title>Dashboard</title>
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
+    <style>
+    html {
+        scroll-behavior: smooth;
+    }
+    </style>
 </head>
 <body class="">
     <div class="flex  relative  min-h-screen bg-cover bg-center" 
@@ -21,6 +26,9 @@
 
         {{-- Main content     --}}
         <div class="">
+          <h1 class="text-3xl font-semibold py-3 px-3 text-[#cbc8d7]">
+             Welcome, {{Auth::user()->fname}}
+          </h1>
             @yield('content')
         </div>
     </div>

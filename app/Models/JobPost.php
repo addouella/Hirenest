@@ -2,11 +2,24 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class JobPost extends Model
 {
     //
+    use HasFactory;     
+
+    protected $table = 'job_posts';
+
+    protected $fillable = [
+        'employer_id',
+        'title',
+        'description',
+        'location',
+        'salary',
+       
+    ];
     public function employer()
 {
     return $this->belongsTo(User::class, 'employer_id');
