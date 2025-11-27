@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('employer_notes')->nullable();
 
             $table->unique(['user_id', 'job_id']);
-            $table->json('documents')->nullable();
+            // $table->json('documents')->nullable();
         });
     }
 
