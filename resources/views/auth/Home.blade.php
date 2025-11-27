@@ -23,9 +23,15 @@
                              <a href="#about" class="active font-semibold">About</a>
                         </div>
                         <div class="text-[#140640] ">
+                            @if(Auth::check())
+                            
+                                <a class="active bg-[#948c38] rounded px-2 py-1 text-sm  " href="/logout">Log Out</a>
+                            @else
+
+                                <a class="active bg-[#d2cc87] rounded px-2 py-1 text-sm " href="/signup">Sign Up</a>
+                                <a class="active bg-[#948c38] rounded px-2 py-1 text-sm  " href="/login">Log In</a>
+                            @endif
                             {{-- <button class="bg-green-400">Sign Up</button> --}}
-                            <a class="active bg-[#d2cc87] rounded px-2 py-1 text-sm " href="/signup">Sign Up</a>
-                            <a class="active bg-[#948c38] rounded px-2 py-1 text-sm  " href="/login">Log In</a>
                         </div>
                     </div>
                               
@@ -34,7 +40,7 @@
                     <p class="text-lg mb-6">Connecting job seekers and employers on one smart platform.</p>
                     <div class="flex justify-center gap-4">
                         <a href="/signup" class="bg-[#bfc4e0] text-[#091766] px-6 py-2 rounded font-semibold">Get Started</a>
-                        <a href="/jobs" class="border border-[#9396a5] px-6 py-2 rounded font-semibold ">Browse Jobs</a>
+                        <a href="/dashboard" class="border border-[#9396a5] px-6 py-2 rounded font-semibold ">Browse Jobs</a>
                     </div>
                 </section>
 

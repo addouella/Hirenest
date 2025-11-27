@@ -2,11 +2,11 @@
 
 {{-- <div class="flex"> --}}
 @section('sidebar')
-<div id="sidebar" class="  z-10 text-[#130839] static backdrop-blur-lg bg-white/10 border border-white/20 rounded-b-xs shadow-2xl w-40">
+<div id="sidebar" class="  z-10 text-[#130839] sidebar fixed top-0 left-0 h-screen  backdrop-blur-lg bg-white/10 border border-white/20 rounded-b-xs shadow-2xl w-40">
        {{-- space-y-3 fixed inset-y-0 left-0 transform transition-transform duration-300 ease-in-out "> --}}
             <h2 class="p-2 font-semibold bg-[#ac9c7f] w-full">Job Seeker</h2>
             <a href="/dashboard" class="block p-2  hover:bg-gray-700 rounded-xl">Dashboard</a>
-            <a href="{{route('dashboard')}}#joblistings" class="block p-2 hover:bg-gray-700 rounded-xl">Jobs</a>
+            <a href="{{route('jobs.all')}}#joblistings" class="block p-2 hover:bg-gray-700 rounded-xl">Jobs</a>
             <a href="/profile" class="block p-2 hover:bg-gray-700 rounded-xl">Profiles</a>
             <a href="/message" class="block p-2 hover:bg-gray-700 rounded-xl">Messages</a>
             <a href="/settings" class="block p-2 hover:bg-gray-700 rounded-xl">Settings</a>
@@ -20,7 +20,7 @@
 
 {{-- @section('title', 'Job Seeker dashboard') @endsection --}}
 @section('content')
-<div class="flex flex-col w-full px-3">
+<div class="flex flex-col w-full px-2 ml-44">
 <p class="py-1 px-3 text-[#151336] font-medium">Let's find the perfect job for you!</p>
 
 {{-- The quick stat --}}

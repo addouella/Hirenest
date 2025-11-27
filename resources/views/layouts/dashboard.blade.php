@@ -26,7 +26,7 @@
 
         {{-- Main content     --}}
         <div class="">
-          <h1 class="text-3xl font-semibold py-3 px-3 text-[#cbc8d7]">
+          <h1 class="text-3xl font-semibold py-3 ml-44 px-3 text-[#cbc8d7]">
              Welcome, {{Auth::user()->fname}}
           </h1>
             @yield('content')

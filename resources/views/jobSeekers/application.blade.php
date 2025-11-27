@@ -13,7 +13,7 @@
             <label for="DoB" class="">Date of Birth</label>
             <input type="date" name="date_of_birth" id="DoB" class="">
             <label for="docs" class="">Upload Documents (CV, Cover Letter)</label>
-            <input type="file" class="" name="document" required multiple>
+            <input type="file" id="docs" class="" name="document" required multiple>
             <label for="message" class="">Any additional Info</label>
             <textarea name="message" id="message" cols="30" rows="10"></textarea>
             <button class="hover:underline" type="submit">Submit</button>

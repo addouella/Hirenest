@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Application;
+use App\Models\Interview;
 use App\Models\JobPost;
+use App\Models\SavedJob;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -69,9 +72,27 @@ class JobController extends Controller
     }
 
     //job listings
-    public function list()
+    public function allJobs()
     {
+        $user = Auth::user();
+
+        $recentJobs = collect([]);  //will be empty when viewing all jobs
+        $allJobs = JobPost::latest()->get();
+    
+        // $jobPosts = new JobPost();
+
+         $applicationsCount = Application::where('user_id',$user->id)->count();
+        $savedJobsCount = SavedJob::where('user_id',$user->id)->count();
+        $interviewsCount = Interview::where('user_id',$user->id)->count();
         
+
+        return view('jobSeekers.dashboard', compact(
+            'recentJobs',
+            'allJobs',
+            'applicationsCount',
+            'savedJobsCount',
+            'interviewsCount',
+        ));
     }
 
     }

@@ -24,9 +24,13 @@ Route::get('/', function () {
 //     return view('auth.login');
 // });
 
-Route::view('/signup', 'auth.signup');
-Route::view('/login', 'auth.login');
+Route::middleware(['guest'])->group(function(){
+    Route::view('/signup', 'auth.signup');
+    Route::view('/login', 'auth.login');
+});
+
 Route::view('/home', 'auth.Home');
+
 
 
 // Route::post('/signup', [AuthController::class, 'signup']);
@@ -35,6 +39,7 @@ Route::view('/home', 'auth.Home');
 Route::controller(AuthController::class)->group(function () {
     Route::post('/signup', 'submit')->name('signup');
     Route::post('/login', 'login') ->name('login');
+    Route::get('/logout', 'logout') -> name('logout');
     Route::post('/logout', 'logout') -> name('logout');
     
 });
@@ -68,6 +73,7 @@ Route::get('/dashboard',  function ()
 
         // only latest 5
         $recentJobs = JobPost::latest()->take(5)->get();
+        $allJobs = JobPost::latest()->get();
 
         return view('jobSeekers.dashboard', [
             'applicationsCount' => $applicationsCount,

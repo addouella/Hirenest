@@ -12,6 +12,7 @@ class Application extends Model
         'job_id',
         'message',
         'cover_letter',
-        ''
+        'fullname',
+        'date_of_birth',
     ];
 }
